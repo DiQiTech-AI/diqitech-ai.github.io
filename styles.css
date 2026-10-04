@@ -130,8 +130,8 @@ button:focus-visible {
   max-width: 4rem;
   max-height: 4rem;
   flex: 0 0 4rem;
-  border: 1px solid var(--line-strong);
-  border-radius: 0.75rem;
+  -webkit-clip-path: ellipse(46.6% 35.5% at 49.8% 50.1%);
+  clip-path: ellipse(46.6% 35.5% at 49.8% 50.1%);
   object-fit: contain;
 }
 
@@ -879,7 +879,6 @@ button:focus-visible {
     max-width: 3.25rem;
     max-height: 3.25rem;
     flex-basis: 3.25rem;
-    border-radius: 0.625rem;
   }
 
   .site-header {
