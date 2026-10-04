@@ -127,6 +127,8 @@ button:focus-visible {
   display: block;
   width: 4rem;
   height: 4rem;
+  max-width: 4rem;
+  max-height: 4rem;
   flex: 0 0 4rem;
   border: 1px solid var(--line-strong);
   border-radius: 0.75rem;
@@ -874,6 +876,8 @@ button:focus-visible {
   .site-footer .brand-logo {
     width: 3.25rem;
     height: 3.25rem;
+    max-width: 3.25rem;
+    max-height: 3.25rem;
     flex-basis: 3.25rem;
     border-radius: 0.625rem;
   }
