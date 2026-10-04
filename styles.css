@@ -123,16 +123,14 @@ button:focus-visible {
   letter-spacing: 0.02em;
 }
 
-.brand-mark {
-  display: grid;
-  width: 2.25rem;
-  height: 2.25rem;
-  place-items: center;
+.brand-logo {
+  display: block;
+  width: 4rem;
+  height: 4rem;
+  flex: 0 0 4rem;
   border: 1px solid var(--line-strong);
-  color: var(--paper);
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  letter-spacing: -0.08em;
+  border-radius: 0.75rem;
+  object-fit: contain;
 }
 
 .site-nav {
@@ -736,6 +734,12 @@ button:focus-visible {
   color: var(--paper);
 }
 
+.site-footer .brand-logo {
+  width: 3.5rem;
+  height: 3.5rem;
+  flex-basis: 3.5rem;
+}
+
 .site-footer > a:last-child {
   justify-self: end;
 }
@@ -864,6 +868,14 @@ button:focus-visible {
 
   .brand-name {
     display: none;
+  }
+
+  .brand-logo,
+  .site-footer .brand-logo {
+    width: 3.25rem;
+    height: 3.25rem;
+    flex-basis: 3.25rem;
+    border-radius: 0.625rem;
   }
 
   .site-header {
