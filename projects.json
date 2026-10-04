@@ -17,6 +17,7 @@
       "en": "AI Product Engineering"
     },
     "technologies": ["Python", "FastAPI", "Google ADK", "RAG"],
+    "access": "public",
     "url": "https://github.com/DiQiTech-AI/flippo"
   }
 ]

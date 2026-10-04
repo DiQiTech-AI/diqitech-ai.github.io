@@ -44,11 +44,9 @@ const translations = {
     diagramOutcomes: "结果",
     diagramOutcomesSub: "响应 · 决策",
     aboutTitle: "技术判断，\n产品视角。",
-    aboutLead: "DiQi Tech 是一家位于阿联酋的 AI 产品工程公司。",
+    aboutLead: "DiQi Tech 是一家 AI 产品工程公司。",
     aboutCopy: "我们关注复杂 AI 能力如何进入真实工作流：界面是否清楚，证据是否可追溯，系统是否能在模型和需求变化时继续演进。",
     legalLabel: "公司名称",
-    baseLabel: "所在地",
-    baseValue: "阿拉伯联合酋长国",
     domainLabel: "网站",
     collaborateTitle: "关注我们正在构建的产品。",
     collaborateCopy: "在 GitHub 查看 DiQi Tech 的组织主页与可访问仓库。",
@@ -57,6 +55,7 @@ const translations = {
     emptyTitle: "项目介绍正在整理",
     emptyCopy: "完整项目资料将在确认后发布。",
     privateAccess: "私有仓库 · 访问可能受限",
+    publicAccess: "公开仓库",
     repositoryLabel: "查看",
     repositoryAria: (name) => `查看 ${name} 仓库`,
     technologyLabel: "技术",
@@ -74,7 +73,7 @@ const translations = {
     navApproach: "Approach",
     navAbout: "Company",
     navCollaborate: "Collaborate",
-    languageLabel: "切换至中文",
+    languageLabel: "Switch to Chinese",
     heroTitle: "Turn AI capability\ninto a product people can use.",
     heroCopy: "From problem framing to reliable delivery, we design and build AI products that are clear, verifiable, and made to evolve.",
     seeWork: "View work",
@@ -106,11 +105,9 @@ const translations = {
     diagramOutcomes: "Outcomes",
     diagramOutcomesSub: "Responses · Decisions",
     aboutTitle: "Technical judgment.\nProduct perspective.",
-    aboutLead: "DiQi Tech is an AI product engineering company based in the UAE.",
+    aboutLead: "DiQi Tech is an AI product engineering company.",
     aboutCopy: "We focus on how complex AI capabilities enter real workflows: whether the interface is clear, evidence is traceable, and the system can evolve as models and requirements change.",
     legalLabel: "Company name",
-    baseLabel: "Location",
-    baseValue: "United Arab Emirates",
     domainLabel: "Website",
     collaborateTitle: "Follow what we are building.",
     collaborateCopy: "Visit the DiQi Tech organization and accessible repositories on GitHub.",
@@ -119,6 +116,7 @@ const translations = {
     emptyTitle: "Project profiles are being prepared",
     emptyCopy: "Complete project information will be published after review.",
     privateAccess: "Private repository · access may be restricted",
+    publicAccess: "Public repository",
     repositoryLabel: "View",
     repositoryAria: (name) => `View the ${name} repository`,
     technologyLabel: "Technologies",
@@ -126,7 +124,7 @@ const translations = {
 };
 
 const state = {
-  language: getSavedLanguage(),
+  language: "en",
   projects: [],
   projectsLoaded: false,
   category: "all",
@@ -137,22 +135,6 @@ const projectFilters = document.querySelector("[data-project-filters]");
 const menuToggle = document.querySelector("[data-menu-toggle]");
 const navigation = document.querySelector("[data-nav]");
 const header = document.querySelector("[data-header]");
-
-function getSavedLanguage() {
-  try {
-    return localStorage.getItem("diqitech-language") === "en" ? "en" : "zh";
-  } catch {
-    return "zh";
-  }
-}
-
-function saveLanguage(language) {
-  try {
-    localStorage.setItem("diqitech-language", language);
-  } catch {
-    // Language switching still works when storage is unavailable.
-  }
-}
 
 function localized(value) {
   if (typeof value === "string") return value;
@@ -176,7 +158,7 @@ function updateLanguage() {
   });
   navigation.setAttribute("aria-label", copy.navLabel);
   menuToggle.setAttribute("aria-label", menuToggle.getAttribute("aria-expanded") === "true" ? copy.menuClose : copy.menuOpen);
-  document.querySelector("[data-language-short]").textContent = state.language === "zh" ? "EN" : "中";
+  document.querySelector("[data-language-short]").textContent = state.language === "zh" ? "EN" : "ZH";
   document.querySelector("[data-language-label]").textContent = copy.languageLabel;
   document.querySelector("[data-language-toggle]").setAttribute("aria-label", copy.languageLabel);
   if (state.projectsLoaded) renderProjects();
@@ -200,7 +182,8 @@ function createProject(project, index) {
   const content = element("div", "project-content");
   const description = element("p", "project-description", localized(project.description));
   const technologies = element("ul", "technology-list");
-  const access = element("span", "project-access", copy.privateAccess);
+  const accessLabel = project.access === "public" ? copy.publicAccess : copy.privateAccess;
+  const access = element("span", "project-access", accessLabel);
   const link = element("a", "project-link", copy.repositoryLabel);
 
   heading.append(category, title, summary);
@@ -309,7 +292,6 @@ document.addEventListener("keydown", (event) => {
 document.querySelector("[data-language-toggle]").addEventListener("click", () => {
   state.language = state.language === "zh" ? "en" : "zh";
   state.category = "all";
-  saveLanguage(state.language);
   updateLanguage();
   renderFilters();
 });
