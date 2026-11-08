@@ -14,4 +14,4 @@ Open <http://127.0.0.1:4173>.
 
 In the repository settings, configure Pages to deploy from the `main` branch and the repository root (`/`). The `CNAME` file declares `diqitech.ai` as the custom domain. After DNS verification and certificate provisioning complete, enable **Enforce HTTPS** in the Pages settings.
 
-The site is dependency-free. Update project records in `projects.json`, keeping Chinese and English fields aligned and claims supported by the relevant repository. Set `access` to `public` only after verifying repository visibility; public visibility does not imply an open-source license.
+The site is dependency-free. Update project records in `projects.json`, keeping Chinese and English fields aligned and claims supported by the relevant repository. Each entry may set an optional `icon` path under `assets/` to render the project logo at the top of its card. Set `access` to `public` only after verifying repository visibility; public visibility does not imply an open-source license.

@@ -414,6 +414,15 @@ button:focus-visible {
   color: #c7d0de;
 }
 
+.project-icon {
+  display: block;
+  height: 2.25rem;
+  width: auto;
+  max-width: min(100%, 12rem);
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+}
+
 .project-description {
   max-width: 42rem;
   margin: 0 0 1.5rem;
@@ -928,6 +937,11 @@ button:focus-visible {
   .project-item {
     grid-template-columns: 2.5rem minmax(0, 1fr) auto;
     gap: 1rem;
+  }
+
+  .project-icon {
+    height: 1.75rem;
+    margin-bottom: 0.75rem;
   }
 
   .project-category {

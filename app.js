@@ -176,6 +176,14 @@ function createProject(project, index) {
   const article = element("article", "project-item");
   const number = element("span", "project-number", String(index + 1).padStart(2, "0"));
   const heading = element("div", "project-heading");
+  if (project.icon) {
+    const icon = element("img", "project-icon");
+    icon.src = project.icon;
+    icon.alt = localized(project.name);
+    icon.loading = "lazy";
+    icon.decoding = "async";
+    heading.append(icon);
+  }
   const category = element("span", "project-category", localized(project.category));
   const title = element("h3", "project-title", localized(project.name));
   const summary = element("p", "project-summary", localized(project.summary));

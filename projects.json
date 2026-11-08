@@ -4,6 +4,7 @@
       "zh": "翻翻文档 · Flippo",
       "en": "Flippo"
     },
+    "icon": "assets/flippo-logo.png",
     "summary": {
       "zh": "可核验证据的单文档 RAG 工作台。",
       "en": "A single-document RAG workspace with verifiable evidence."
@@ -19,5 +20,27 @@
     "technologies": ["Python", "FastAPI", "Google ADK", "RAG"],
     "access": "public",
     "url": "https://github.com/DiQiTech-AI/flippo"
+  },
+  {
+    "name": {
+      "zh": "团匠 · TeamCraft",
+      "en": "TeamCraft"
+    },
+    "icon": "assets/teamcraft-logo.png",
+    "summary": {
+      "zh": "基于 Herdr 的有状态软件团队编排技能。",
+      "en": "A stateful software team orchestration skill built on Herdr."
+    },
+    "description": {
+      "zh": "以首席工程师（CEO）智能体为核心，按需组建 CTO、开发、设计、测试等专家角色；每位成员在独立面板中携带明确角色、文件所有权范围与验收证据协作交付，团队状态持久化于 SQLite 并支持安全恢复。",
+      "en": "A chief-engineer (CEO) agent staffs CTO, developer, designer, tester, or custom specialists on demand. Every member works in its own pane with an explicit role, file-ownership scope, and acceptance evidence, while team state persists in SQLite with safe, human-in-the-loop recovery."
+    },
+    "category": {
+      "zh": "Agent 工作流",
+      "en": "Agent Workflows"
+    },
+    "technologies": ["Python", "Herdr", "SQLite", "OpenCode", "Codex"],
+    "access": "public",
+    "url": "https://github.com/DiQiTech-AI/teamcraft"
   }
 ]
